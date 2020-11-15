@@ -18,6 +18,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DocloginComponent } from './doclogin/doclogin.component';
 import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { PatientregisterComponent } from './patientregister/patientregister.component';
+import { DoctorregisterComponent } from './doctorregister/doctorregister.component';
 
 
 
@@ -39,6 +40,7 @@ import { PatientregisterComponent } from './patientregister/patientregister.comp
     DocloginComponent,
     PatientloginComponent,
     PatientregisterComponent,
+    DoctorregisterComponent,
 
   ],
   imports: [
