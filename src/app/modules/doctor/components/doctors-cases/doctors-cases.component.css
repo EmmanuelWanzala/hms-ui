@@ -1,0 +1,13 @@
+.card{
+    box-shadow:0 4px 8px 0 rgba(red, green, blue, alpha);
+    transition:0.4s;
+    width:400px;
+    background: rgb(0, 204, 255);
+    text-align: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    /* float:left; */
+    margin-left:700px;
+    /* padding: 90px; */
+    padding-bottom: 30px;
+}

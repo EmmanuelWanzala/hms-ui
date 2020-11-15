@@ -1,0 +1,31 @@
+.card{
+  width:20%;
+  background: rgb(24, 88, 185);
+  border:1 px solid #ccc;
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+.card-header{
+text-align: center;
+padding: 50px 10px;
+background: linear-gradient(to right,#0000FF, #0000FF);
+color: #fff;
+}
+.card-body .btn{
+    display:block;
+    color: #0000FF;
+    text-align: center;
+    background: linear-gradient(to right, #0000FF, #00FFFF);
+    margin-top:30px;
+    padding:10px 5px;
+}
+card-body {
+    padding:30px 20px;
+    text-align:center;
+    font-size:18px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
