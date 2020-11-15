@@ -1,0 +1,46 @@
+<div class="mb-3 auth">
+
+	<div style="margin-top: 4rem;width: 50vw;" class="card mx-auto content">
+		<div class="card-body">
+		  <form style="padding:50px" method="POST">
+		    <h2 class="text-center">Medman Patient Sign up</h2>
+
+		    <div class="md-form form-group mt-4">
+			    <input type="text" class="form-control" id="first_name" name="first_name">
+			    <label for="first_name">First Name</label>
+		  	</div>
+		  	<div class="md-form form-group mt-4">
+			    <input type="text" class="form-control" id="last_name" name="last_name">
+			    <label for="first_name">Last Name</label>
+		  	</div>
+		  	<div class="md-form form-group mt-4">
+			    <input type="text" disabled class="form-control" id="role" name="role" value="Patient">
+			    <label for="first_name">Role</label>
+		  	</div>
+		  	<div class="md-form form-group mt-4">
+			    <input type="email" class="form-control" id="email" name="email" >
+			    <label for="email">Email Address</label>
+		  	</div>
+		  	<div class="md-form form-group mt-4">
+			    <input type="text" class="form-control" id="address" name="address" >
+			    <label for="address">Address</label>
+		  	</div>
+		  	<div class="md-form form-group mt-4">
+			  <input type="number" id="mobile" name="mobile" class="form-control">
+			  <label for="mobile">Mobile</label>
+			</div>
+			<div class="md-form form-group mt-4">
+			  <input type="password" id="password" name="password" class="form-control">
+			  <label for="mobile">Password</label>
+			</div>
+			<div class="form-group text-center">
+		      <button class="btn mt-4 btn-md btn-primary btn-block" type="button">Sign up</button>
+		    </div>
+		  </form>
+		</div>
+	</div>  
+
+	<div id = "no_account">
+	    <h4>Have an account?<a routerLink="/patient/login" routerLinkActive="active" > Log in</a></h4>
+	</div>
+</div>
