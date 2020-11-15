@@ -1,0 +1,28 @@
+.welcome{
+  background :url(src/assets/bg.jpeg)no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.banner{
+  width: 90%;
+  margin: auto;
+  padding-top: 15%;
+}
+.banner .heading{
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 30px;
+  color: #fac564;
+}
+.banner .btn-primary {
+  background: #fac564;
+  color: #000;
+}
+.logo{
+	width:106px; 
+	heigh:91px;
+}
+
+span, h4{
+  font-family: 'Vollkorn SC', serif;
+}

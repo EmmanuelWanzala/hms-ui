@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/patient/components/home/home.component';
 import { AppointmentsComponent } from './modules/patient/components/appointments/appointments.component';
@@ -14,6 +14,7 @@ import { DoctorDashboardComponent } from './modules/doctor/components/doctor-das
 import { DoctorsPageComponent } from './modules/doctor/components/doctors-page/doctors-page.component';
 import { DoctorsAppointmentsComponent } from './modules/doctor/components/doctors-appointments/doctors-appointments.component';
 import { DoctorsCasesComponent } from './modules/doctor/components/doctors-cases/doctors-cases.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -26,11 +27,11 @@ import { DoctorsCasesComponent } from './modules/doctor/components/doctors-cases
     ProfileComponent,
     LogoutComponent,
     NavbarComponent,
-    routingComponents,
     DoctorDashboardComponent,
     DoctorsPageComponent,
     DoctorsAppointmentsComponent,
-    DoctorsCasesComponent
+    DoctorsCasesComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
