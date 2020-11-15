@@ -15,6 +15,9 @@ import { DoctorsPageComponent } from './modules/doctor/components/doctors-page/d
 import { DoctorsAppointmentsComponent } from './modules/doctor/components/doctors-appointments/doctors-appointments.component';
 import { DoctorsCasesComponent } from './modules/doctor/components/doctors-cases/doctors-cases.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { DocloginComponent } from './doclogin/doclogin.component';
+import { PatientloginComponent } from './patientlogin/patientlogin.component';
+
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
     DoctorsPageComponent,
     DoctorsAppointmentsComponent,
     DoctorsCasesComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    DocloginComponent,
+    PatientloginComponent,
+
   ],
   imports: [
     BrowserModule,
