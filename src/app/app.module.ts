@@ -20,6 +20,7 @@ import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { PatientregisterComponent } from './patientregister/patientregister.component';
 import { DoctorregisterComponent } from './doctorregister/doctorregister.component';
 import { PatientDashboardComponent } from './modules/patient/components/patient-dashboard/patient-dashboard.component';
+import { PatientNavbarComponent } from './modules/patient/components/patient-navbar/patient-navbar.component';
 
 
 
@@ -43,6 +44,7 @@ import { PatientDashboardComponent } from './modules/patient/components/patient-
     PatientregisterComponent,
     DoctorregisterComponent,
     PatientDashboardComponent,
+    PatientNavbarComponent,
 
   ],
   imports: [
