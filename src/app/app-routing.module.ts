@@ -6,7 +6,7 @@ import { DoctorregisterComponent } from './doctorregister/doctorregister.compone
 import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { PatientregisterComponent } from './patientregister/patientregister.component';
 import {PatientDashboardComponent} from './modules/patient/components/patient-dashboard/patient-dashboard.component'
-import { HomeComponent } from './modules/patient/components/home/home.component';
+
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'doctor/login', component: DocloginComponent},
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'doctor/register', component: DoctorregisterComponent},
   {path: 'patient/dashboard', component: PatientDashboardComponent,
    children: [
-    
+      
     ]
 	},
 ];

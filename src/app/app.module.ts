@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './modules/patient/components/home/home.component';
 import { AppointmentsComponent } from './modules/patient/components/appointments/appointments.component';
 import { BillingComponent } from './modules/patient/components/billing/billing.component';
 import { MedicalrecordsComponent } from './modules/patient/components/medicalrecords/medicalrecords.component';
@@ -27,7 +26,6 @@ import { PatientNavbarComponent } from './modules/patient/components/patient-nav
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     AppointmentsComponent,
     BillingComponent,
     MedicalrecordsComponent,
