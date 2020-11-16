@@ -1,0 +1,8 @@
+.main{
+  margin-left:14.5vw;
+}
+@media (max-width: 767.98px) {
+  .main{
+    margin-left:0;
+  }
+}
