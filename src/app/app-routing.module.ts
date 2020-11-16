@@ -8,6 +8,8 @@ import { PatientregisterComponent } from './patientregister/patientregister.comp
 import {PatientDashboardComponent} from './modules/patient/components/patient-dashboard/patient-dashboard.component'
 import { PatientHomeComponent } from './modules/patient/components/patient-home/patient-home.component';
 import {PatientDoctorsComponent} from './modules/patient/components/patient-doctors/patient-doctors.component';
+import {PatientAppointmentsComponent} from './modules/patient/components/patient-appointments/patient-appointments.component';
+
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'doctor/login', component: DocloginComponent},
@@ -18,6 +20,7 @@ const routes: Routes = [
    children: [
       {path: '', component: PatientHomeComponent},
       {path: 'doctors', component: PatientDoctorsComponent},
+      {path: 'appointments', component: PatientAppointmentsComponent},
     ]
 	},
 ];
