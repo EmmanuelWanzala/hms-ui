@@ -14,6 +14,9 @@ import {PatientMedRecordsComponent} from './modules/patient/components/patient-m
 
 import {DoctorDashboardComponent} from './modules/doctor/components/doctor-dashboard/doctor-dashboard.component'
 import {DoctorHomeComponent } from './modules/doctor/components/doctor-home/doctor-home.component';
+import {DoctorPatientsComponent} from './modules/doctor/components/doctor-patients/doctor-patients.component';
+
+
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'doctor/login', component: DocloginComponent},
@@ -32,6 +35,7 @@ const routes: Routes = [
   {path: 'doctor/dashboard', component: DoctorDashboardComponent,
    children: [
       {path: '', component: DoctorHomeComponent},
+      {path: 'patients', component: DoctorPatientsComponent},
     ]
   },
 ];
