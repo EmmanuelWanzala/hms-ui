@@ -1,0 +1,80 @@
+.rgba-blue-strong, .rgba-blue-strong:after  {
+    background-color: rgba(4, 146, 194,0.6);
+}
+.welcome-card{
+	background-image: url('/assets/icons/clinic.jpg');
+	background-position: 50% 0%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.course {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    max-width: 100%;
+    margin: 20px;
+    overflow: hidden;
+    width: 700px;
+}
+
+.course h6 {
+    opacity: 0.6;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.course h2 {
+    letter-spacing: 1px;
+    margin: 10px 0;
+}
+
+.course-preview1 {
+    background-image:url('/assets/icons/calendar1.png'); 
+    background-size: cover;
+    color: #fff;
+    padding: 30px;
+    min-width: 10vw;
+    width:15vw;
+}
+.course-preview2 {
+    background-image:url('/assets/icons/patient.png'); 
+    background-size: cover;
+    color: #fff;
+    padding: 30px;
+    min-width: 10vw;
+    width:15vw;
+}
+.course-preview3 {
+    background-image:url('/assets/icons/record1.png'); 
+    background-size: cover;
+    color: #fff;
+    padding: 30px;
+    min-width: 10vw;
+    width:15vw;
+}
+.my-card{
+    position:absolute;
+    left:45%;
+    top:-20px;
+    border-radius:50%;
+    width: 7vh;
+    height: 7vh;
+}
+
+.course-preview1 a,.course-preview2 a,.course-preview3 a,.course-preview4 a, {
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.course-info {
+    padding: 30px;
+    position: relative;
+    width: 100%;
+}
+
