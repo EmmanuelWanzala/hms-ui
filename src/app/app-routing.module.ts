@@ -6,13 +6,14 @@ import { DoctorregisterComponent } from './doctorregister/doctorregister.compone
 import { PatientloginComponent } from './patientlogin/patientlogin.component';
 import { PatientregisterComponent } from './patientregister/patientregister.component';
 import {PatientDashboardComponent} from './modules/patient/components/patient-dashboard/patient-dashboard.component'
-import { PatientHomeComponent } from './modules/patient/components/patient-home/patient-home.component';
+import {PatientHomeComponent } from './modules/patient/components/patient-home/patient-home.component';
 import {PatientDoctorsComponent} from './modules/patient/components/patient-doctors/patient-doctors.component';
 import {PatientAppointmentsComponent} from './modules/patient/components/patient-appointments/patient-appointments.component';
 import {PatientBillsComponent} from './modules/patient/components/patient-bills/patient-bills.component';
 import {PatientMedRecordsComponent} from './modules/patient/components/patient-med-records/patient-med-records.component';
-import {DoctorDashboardComponent} from './modules/doctor/components/doctor-dashboard/doctor-dashboard.component'
 
+import {DoctorDashboardComponent} from './modules/doctor/components/doctor-dashboard/doctor-dashboard.component'
+import {DoctorHomeComponent } from './modules/doctor/components/doctor-home/doctor-home.component';
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'doctor/login', component: DocloginComponent},
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {path: 'doctor/dashboard', component: DoctorDashboardComponent,
    children: [
-      
+      {path: '', component: DoctorHomeComponent},
     ]
   },
 ];

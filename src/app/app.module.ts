@@ -26,6 +26,7 @@ import { PatientAppointmentsComponent } from './modules/patient/components/patie
 import { PatientBillsComponent } from './modules/patient/components/patient-bills/patient-bills.component';
 import { PatientMedRecordsComponent } from './modules/patient/components/patient-med-records/patient-med-records.component';
 import { DoctorNavbarComponent } from './modules/doctor/components/doctor-navbar/doctor-navbar.component';
+import { DoctorHomeComponent } from './modules/doctor/components/doctor-home/doctor-home.component';
 
 
 
@@ -55,6 +56,7 @@ import { DoctorNavbarComponent } from './modules/doctor/components/doctor-navbar
     PatientBillsComponent,
     PatientMedRecordsComponent,
     DoctorNavbarComponent,
+    DoctorHomeComponent,
 
   ],
   imports: [
