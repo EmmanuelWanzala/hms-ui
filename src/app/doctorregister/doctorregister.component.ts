@@ -10,6 +10,20 @@ export class DoctorregisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+	  this.reguser = {
+	      first_name: '',
+	      last_name: '',
+	      role:2,
+	      email: '',
+	      address:'',
+	      mobile:'',
+	      password: ''
+	      
+	  }
+  }
+
+  registerDoc=()=>{
+  	console.log(this.reguser)
   }
 
 }
