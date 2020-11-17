@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {AuthServiceService} from '../core/authentication/auth-service.service'
 @Component({
   selector: 'app-doclogin',
   templateUrl: './doclogin.component.html',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocloginComponent implements OnInit {
 
-  constructor() { }
+	public loginuser:any
+	
+  constructor(public _authService:AuthServiceService) { }
 
   ngOnInit(): void {
+
+  	this.loginuser={
+  		email:'',
+  		password:''
+  	}
+  }
+
+  docLogin=()=>{
+  	// this._authService.loginUser(this.loginuser)
+  	console.log(this.loginuser)
   }
 
 }
