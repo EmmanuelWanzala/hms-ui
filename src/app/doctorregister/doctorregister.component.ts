@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthServiceService} from "../core/authentication/auth-service.service"
+
 
 @Component({
   selector: 'app-doctorregister',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorregisterComponent implements OnInit {
 
-  constructor() { }
+	public reguser:any
+
+
+
+  constructor(public _authService:AuthServiceService) { }
 
   ngOnInit(): void {
 	  this.reguser = {
@@ -20,10 +26,11 @@ export class DoctorregisterComponent implements OnInit {
 	      password: ''
 	      
 	  }
+	  this._authService.regErrors=[]
   }
 
   registerDoc=()=>{
-  	console.log(this.reguser)
+  	this._authService.registerUser(this.reguser)
   }
 
 }
