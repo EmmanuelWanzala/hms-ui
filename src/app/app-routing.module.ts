@@ -11,7 +11,7 @@ import {PatientDoctorsComponent} from './modules/patient/components/patient-doct
 import {PatientAppointmentsComponent} from './modules/patient/components/patient-appointments/patient-appointments.component';
 import {PatientBillsComponent} from './modules/patient/components/patient-bills/patient-bills.component';
 import {PatientMedRecordsComponent} from './modules/patient/components/patient-med-records/patient-med-records.component';
-
+import {DoctorDashboardComponent} from './modules/doctor/components/doctor-dashboard/doctor-dashboard.component'
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -26,6 +26,11 @@ const routes: Routes = [
       {path: 'appointments', component: PatientAppointmentsComponent},
       {path: 'bills', component: PatientBillsComponent},
       {path: 'medrecords', component: PatientMedRecordsComponent},
+    ]
+  },
+  {path: 'doctor/dashboard', component: DoctorDashboardComponent,
+   children: [
+      
     ]
   },
 ];
