@@ -4,7 +4,7 @@
 	  <div class="text-white d-flex align-items-center rgba-blue-strong py-5 px-4">
 	    <div>
 	      <p>Welcome
-	      	<span><p>Dennis Kamunya</p></span>
+	      	<span><p>{{user.user.first_name}} {{user.user.last_name}}</p></span>
 	      </p>
 	      
 	      <hr>
@@ -16,7 +16,7 @@
 
 	<div class="row px-4">
 		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
-		 	<div class="course">
+		 	<div routerLink="/patient/dashboard/appointments" class="course">
 				<div class="course-preview1">
 				
 				</div>
@@ -29,8 +29,8 @@
 			</div>
 		</div>
 
-		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
-		 	<div class="course">
+		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12'">
+		 	<div routerLink="/patient/dashboard/bills" class="course">
 				<div class="course-preview2">
 				
 				</div>
@@ -45,7 +45,7 @@
 
 
 		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
-		 	<div class="course">
+		 	<div routerLink="/patient/dashboard/doctors" class="course">
 				<div class="course-preview3">
 				
 				</div>
@@ -61,14 +61,14 @@
 
 
 		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
-		 	<div class="course">
+		 	<div routerLink="/patient/dashboard/medrecords" class="course">
 				<div class="course-preview4">
 				
 				</div>
 				<div class="course-info">
 					
 					<h6>Medical Records</h6>
-					<h2>4</h2>
+					<h2 *ngIf="this._recService.patientRecords">{{this._recService.patientRecords.length}}</h2>
 			
 				</div>
 			</div>
