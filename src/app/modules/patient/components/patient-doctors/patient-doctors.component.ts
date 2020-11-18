@@ -9,11 +9,35 @@ import {DoctorService} from '../../../../core/http/doctor-service/doctor.service
 })
 export class PatientDoctorsComponent implements OnInit {
 
+
+	public appointment:any
+
+
+	public user:any
+	
   constructor(public _docService:DoctorService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  	this.user=JSON.parse(localStorage.getItem('auth_user'))
+  	this.appointment={
+  		patient:this.user.user.id,
+  		doctor:'',
+  		app_title:'',
+  		app_details:'',
+  		app_date:''
+  	}
   	this._docService.getAllDoctors()
   }
-  data=['https://randomuser.me/api/portraits/men/83.jpg','https://randomuser.me/api/portraits/men/59.jpg','https://randomuser.me/api/portraits/men/80.jpg','https://randomuser.me/api/portraits/women/16.jpg','https://randomuser.me/api/portraits/women/89.jpg']
+
+
+
+
+  setDocId=(docid)=>{
+  	this.appointment.doctor=docid
+  }
+
+  bookAppointment=()=>{
+  	console.log(this.appointment)
+  }
 
 }

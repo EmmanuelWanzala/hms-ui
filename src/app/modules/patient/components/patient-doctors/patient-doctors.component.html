@@ -7,13 +7,12 @@
 				<img class="round" src="assets/icons/doc.png"  width="144px" height="144px" alt="user" />
 				<h3>dr.{{doc.user.first_name}} {{doc.user.last_name}}</h3>
 				<h6>{{doc.department}}</h6>
-				<button data-toggle="modal" data-target="#appModalForm" class="primary ghost">
+				<button data-toggle="modal" (click)="setDocId(doc.user.id)" data-target="#appModalForm" class="primary ghost">
 					BOOK
 				</button>
 			</div>
 		</div>
 	</div>
-
 
 
 	<div class="modal fade" id="appModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -26,29 +25,42 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body mx-3">
-	        <div class="md-form mb-5">
-	          <i class="fas fa-heading prefix grey-text"></i>
-	          <input type="text" id="app-title" class="form-control validate">
-	          <label data-error="wrong" data-success="right" for="app-title">Appointment Title</label>
-	        </div>
+	      <form name="appForm" id="appForm" #appForm='ngForm'>
+		      <div class="modal-body mx-3">
+		        <div class="md-form mb-5">
+		          <i class="fas fa-heading prefix grey-text"></i>
+		          <input type="text" #app_title='ngModel' ng-model="app_title" [(ngModel)]="appointment.app_title" name="app_title" required id="app_title" class="form-control validate">
+		          <label data-error="wrong" data-success="right" for="app-title">Appointment Title</label>
+				  <div [hidden]="app_title.valid || app_title.pristine" class="alert alert-danger">
+			            <p>Appointment title is required</p>
+			      </div>
+		        </div>
 
-	        <div class="md-form mb-4">
-	          <i class="fas fa-info  prefix grey-text"></i>
-	          <textarea type="text" id="app-details" name="app-details" rows="2" class="form-control md-textarea"></textarea>
-	          <label data-error="wrong" data-success="right" for="app-details">Appointment Details</label>
-	        </div>
+		        <div class="md-form mb-4">
+		          <i class="fas fa-info  prefix grey-text"></i>
+		          <textarea type="text" #app_details='ngModel' ng-model="app_details" [(ngModel)]="appointment.app_details"  required id="app_details" name="app_details" rows="2" class="form-control md-textarea"></textarea>
+		          <label data-error="wrong" data-success="right" for="app-details">Appointment Details</label>
+		          <div [hidden]="app_details.valid || app_details.pristine" class="alert alert-danger">
+			            <p>Appointment details required</p>
+			      </div>
+		        </div>
 
-	        <div class="md-form mb-4">
-	          <i class="far fa-calendar-alt  prefix grey-text"></i>
-	          <input type="date" id="app-date" name="app-date" class="form-control validate">
-	          <label data-error="wrong" data-success="right" for="app-date">Appointment Date</label>
-	        </div>
+		        <div class="md-form mb-4">
+		          <i class="far fa-calendar-alt  prefix grey-text"></i>
+		          <input type="date" #app_date='ngModel' ng-model="app_date" [(ngModel)]="appointment.app_date"  required id="app_date" name="app_date" class="form-control validate">
+		          <label data-error="wrong" data-success="right" for="app-date">Appointment Date</label>
+				  <div [hidden]="app_date.valid || app_date.pristine" class="alert alert-danger">
+			            <p>Appointment date required</p>
+			      </div>
 
-	      </div>
-	      <div class="modal-footer d-flex justify-content-center">
-	        <button class="btn btn-default">BOOK</button>
-	      </div>
+		        </div>
+
+		      </div>
+
+		      <div class="modal-footer d-flex justify-content-center">
+		        <button (click)="bookAppointment()" [disabled]="!appForm.valid" class="btn btn-default">BOOK</button>
+		      </div>
+		  </form>      
 	    </div>
 	  </div>
 	</div>
