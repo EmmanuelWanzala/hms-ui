@@ -52,7 +52,7 @@
 				<div class="course-info">
 					
 					<h6>Doctors</h6>
-					<h2>10</h2>
+					<h2 *ngIf="this._docService.allDocs">{{this._docService.allDocs.length}}</h2>
 			
 				</div>
 			</div>
