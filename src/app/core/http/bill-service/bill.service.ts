@@ -5,12 +5,12 @@ import {environment} from '../../../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-export class AppointmentService {
+export class BillService {
 
   
 	// http options used for making API calls
   private httpOptions: any;
-  patientAppointments:any
+  patientBills:any
   errors:boolean=false
   constructor(private http:HttpClient) {
    this.httpOptions = {
@@ -20,12 +20,12 @@ export class AppointmentService {
 
 
 
-  public getPatientApps() {
+  public getPatientBills() {
   	let user = JSON.parse(localStorage.getItem('auth_user'))
 
-    this.http.get(`${environment.api_url}/hms/api/appointments/patient/${user.user.id}`, this.httpOptions).subscribe(
+    this.http.get(`${environment.api_url}/hms/api/bills/patient/${user.user.id}`, this.httpOptions).subscribe(
       data => {
-        this.patientAppointments=data
+        this.patientBills=data      
       },
       err => {
         console.log(err)

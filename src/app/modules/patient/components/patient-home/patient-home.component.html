@@ -37,7 +37,7 @@
 				<div class="course-info">
 					
 					<h6>Bills</h6>
-					<h2>7</h2>
+					<h2 *ngIf="this._billService.patientBills">{{this._billService.patientBills.length}}</h2>
 			
 				</div>
 			</div>
