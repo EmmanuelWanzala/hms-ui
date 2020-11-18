@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DoctorService} from '../../../../core/http/doctor-service/doctor.service'
+import {AppointmentService} from '../../../../core/http/appointment-service/appointment.service'
 
 @Component({
   selector: 'app-patient-doctors',
@@ -7,10 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientDoctorsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+	public appointment:any
+
+
+	public user:any
+	
+  constructor(public _docService:DoctorService,public _appService: AppointmentService) { }
+
+  ngOnInit() {
+  	this.user=JSON.parse(localStorage.getItem('auth_user'))
+  	this.appointment={
+  		patient:this.user.user.id,
+  		doctor:'',
+  		app_title:'',
+  		app_details:'',
+  		app_date:''
+  	}
+  	this._docService.getAllDoctors()
+  	this._appService.appErrors=[]
   }
-  data=['https://randomuser.me/api/portraits/men/83.jpg','https://randomuser.me/api/portraits/men/59.jpg','https://randomuser.me/api/portraits/men/80.jpg','https://randomuser.me/api/portraits/women/16.jpg','https://randomuser.me/api/portraits/women/89.jpg']
+
+
+
+
+  setDocId=(docid)=>{
+  	this.appointment.doctor=docid
+  }
+
+  bookAppointment=()=>{
+  	this._appService.createAppointment(this.appointment)
+  }
 
 }

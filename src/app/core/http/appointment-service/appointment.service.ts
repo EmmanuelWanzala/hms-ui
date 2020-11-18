@@ -12,6 +12,8 @@ export class AppointmentService {
   private httpOptions: any;
   patientAppointments:any
   errors:boolean=false
+
+  public appErrors=[]
   constructor(private http:HttpClient) {
    this.httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -30,6 +32,21 @@ export class AppointmentService {
       err => {
         console.log(err)
         this.errors=true
+          }
+    );
+  }
+
+
+
+
+  public createAppointment(appointment) {
+    this.http.post(`${environment.api_url}/hms/api/appointment/create`, appointment, this.httpOptions).subscribe(
+      data => {
+      	alert('Appointment Booked')
+      },
+      err => {
+    
+        this.appErrors=[err.error]
           }
     );
   }
