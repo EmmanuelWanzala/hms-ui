@@ -100,7 +100,7 @@ export class AuthServiceService {
     const token_decoded = JSON.parse(window.atob(token_parts[1]));
     this.token_expires = new Date(token_decoded.exp * 1000);
     this.user_id = token_decoded.user_id;
-    console.log(token_decoded)
+
     
     if(parseInt(user.role)===2){
       this.http.get(`${environment.api_url}/accounts/api/doctor/${token_decoded.user_id}`, this.httpOptions).subscribe(
