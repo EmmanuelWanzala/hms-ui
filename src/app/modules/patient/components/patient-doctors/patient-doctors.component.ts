@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DoctorService} from '../../../../core/http/doctor-service/doctor.service'
-
+import {AppointmentService} from '../../../../core/http/appointment-service/appointment.service'
 
 @Component({
   selector: 'app-patient-doctors',
@@ -15,7 +15,7 @@ export class PatientDoctorsComponent implements OnInit {
 
 	public user:any
 	
-  constructor(public _docService:DoctorService) { }
+  constructor(public _docService:DoctorService,public _appService: AppointmentService) { }
 
   ngOnInit() {
   	this.user=JSON.parse(localStorage.getItem('auth_user'))
@@ -27,6 +27,7 @@ export class PatientDoctorsComponent implements OnInit {
   		app_date:''
   	}
   	this._docService.getAllDoctors()
+  	this._appService.appErrors=[]
   }
 
 
@@ -37,7 +38,7 @@ export class PatientDoctorsComponent implements OnInit {
   }
 
   bookAppointment=()=>{
-  	console.log(this.appointment)
+  	this._appService.createAppointment(this.appointment)
   }
 
 }

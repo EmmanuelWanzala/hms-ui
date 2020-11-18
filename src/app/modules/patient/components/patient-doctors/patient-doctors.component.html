@@ -25,7 +25,7 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form name="appForm" id="appForm" #appForm='ngForm'>
+	      <form name="appForm" (ngSubmit)='bookAppointment();appForm.reset()' id="appForm" #appForm='ngForm'>
 		      <div class="modal-body mx-3">
 		        <div class="md-form mb-5">
 		          <i class="fas fa-heading prefix grey-text"></i>
@@ -47,18 +47,20 @@
 
 		        <div class="md-form mb-4">
 		          <i class="far fa-calendar-alt  prefix grey-text"></i>
-		          <input type="date" #app_date='ngModel' ng-model="app_date" [(ngModel)]="appointment.app_date"  required id="app_date" name="app_date" class="form-control validate">
-		          <label data-error="wrong" data-success="right" for="app-date">Appointment Date</label>
+		          <input type="datetime-local" #app_date='ngModel' ng-model="app_date" [(ngModel)]="appointment.app_date"  required id="app_date" name="app_date" class="form-control validate">
+		        <!--   <label data-error="wrong" data-success="right" for="app-date">Appointment Date</label> -->
 				  <div [hidden]="app_date.valid || app_date.pristine" class="alert alert-danger">
 			            <p>Appointment date required</p>
 			      </div>
-
+			      <div *ngFor="let error of _appService.appErrors" class="alert alert-danger">
+		            <p>{{error.app_date}}</p>
+		           </div>	
 		        </div>
 
 		      </div>
 
 		      <div class="modal-footer d-flex justify-content-center">
-		        <button (click)="bookAppointment()" [disabled]="!appForm.valid" class="btn btn-default">BOOK</button>
+		        <button [disabled]="!appForm.valid" class="btn btn-default">BOOK</button>
 		      </div>
 		  </form>      
 	    </div>
