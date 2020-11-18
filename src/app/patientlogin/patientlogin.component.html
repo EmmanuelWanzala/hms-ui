@@ -2,19 +2,27 @@
 	<div style="margin-top: 4rem;width: 50vw;" class="card mx-auto content">
 	   
 	    <div class="card-body">
-	        <form class="form-signin" style="padding:50px" method="POST">
+	        <form name="docloginForm" id="docloginForm" #docloginForm='ngForm' class="form-signin" style="padding:50px" method="POST">
 	            <h2 style="font-weight: 400;" class="text-center">Medman Patient Sign in </h2>
-	          
-           		<div class="md-form form-group mt-4">
-				    <input type="email" class="form-control" id="email" name="email" >
-				    <label for="email">Email Address</label>
-			  	</div>
+	            <div *ngFor="let error of _authService.loginErrors" class="alert alert-danger">
+		            <p>{{error.email}}</p>
+		            <p>{{error.detail}}</p>
+		        	</div>	
+	           	<div class="md-form form-group mt-4">
+						    <input type="email" class="form-control" #email='ngModel' ng-model="email" [(ngModel)]="loginuser.email" required id="email" name="email" >
+						    <label for="email">Email Address</label>
+						    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+					            <p>Invalid Email Address</p>
+					      </div>	
+		  				</div>
 	          	<div class="md-form form-group mt-4">
-				  <input type="password" id="password" name="password" class="form-control">
-				  <label for="mobile">Password</label>
-				</div>
-		        
-	            <button class="btn mt-4 btn-md btn-primary btn-block" type="btn">Sign in</button>
+							  <input type="password" #password='ngModel' ng-model="password" [(ngModel)]="loginuser.password" required id="password" name="password" class="form-control">
+							  <label for="password">Password</label>
+							  <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+						            <p>Password is required</p>
+						      </div>
+							</div>
+	            <button (click)="patientLogin()" [disabled]="!docloginForm.valid" class="btn mt-4 btn-md btn-primary btn-block" type="submit">Sign in</button>
 	        </form>
 	    </div>
 	</div>

@@ -100,8 +100,16 @@ export class AuthServiceService {
           }
       )
 
-    }else if(user.role===3){
-
+    }else if(parseInt(user.role)===3){
+      this.http.get(`${environment.api_url}/accounts/api/patient/${token_decoded.user_id}`, this.httpOptions).subscribe(
+      data => {
+        localStorage.setItem('auth_user',JSON.stringify(data))
+        this.router.navigate(['/patient/dashboard'])
+      },
+      err => {
+        console.log(err)
+          }
+      )
     }
     else{
 
