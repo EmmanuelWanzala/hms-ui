@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment'
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+
+const jwtHelper = new JwtHelperService();
 @Injectable({
   providedIn: 'root'
 })
@@ -39,9 +43,17 @@ export class AuthServiceService {
     }
    }
 
+
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('user_token');
+    // Check whether the token is expired and return
+    // true or false
+    return !jwtHelper.isTokenExpired(token);
+  }
+
   public loginUser(user) {
     this.http.post(`${environment.api_url}/accounts/api/login`, JSON.stringify(user), this.httpOptions).subscribe(
-      data => {
+      (data:any)  => {
         this.updateData(data['access'],data['authenticatedUser'])
         this.refresh=data['refresh']
         localStorage.setItem('user_token',data['access'])
@@ -57,7 +69,7 @@ export class AuthServiceService {
 
   public registerUser(user) {
     this.http.post(`${environment.api_url}/accounts/api/register`, JSON.stringify(user), this.httpOptions).subscribe(
-      data => {
+      (data:any) => {
       	alert(data.message)
       	if (data.user.role===2) {
         	this.router.navigate(['/doctor/login'])
@@ -88,6 +100,7 @@ export class AuthServiceService {
     const token_decoded = JSON.parse(window.atob(token_parts[1]));
     this.token_expires = new Date(token_decoded.exp * 1000);
     this.user_id = token_decoded.user_id;
+    console.log(token_decoded)
     
     if(parseInt(user.role)===2){
       this.http.get(`${environment.api_url}/accounts/api/doctor/${token_decoded.user_id}`, this.httpOptions).subscribe(
@@ -119,8 +132,35 @@ export class AuthServiceService {
 
 
 
-  } 
+  }
 
+
+  public logOut() {
+    this.token = null;
+    this.token_expires = null;
+    this.user_id = null;
+    this.refresh = null;
+    
+
+
+    let user = JSON.parse(localStorage.getItem('auth_user'))
+
+
+
+    if(user.user.role===2){
+      localStorage.clear();
+      this.router.navigate(['/doctor/login'])
+    }
+    else if(user.user.role===3){
+      localStorage.clear();
+      this.router.navigate(['/patient/login'])
+    }else{
+      localStorage.clear();
+      this.router.navigate(['/'])
+    }
+  }
+  
+ 
  
 }
 

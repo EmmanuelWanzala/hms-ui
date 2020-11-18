@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule,CanActivate } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DocloginComponent } from './doclogin/doclogin.component';
 import { DoctorregisterComponent } from './doctorregister/doctorregister.component';
@@ -19,6 +19,8 @@ import {DoctorsAppointmentsComponent} from './modules/doctor/components/doctors-
 import {DoctorsCasesComponent} from './modules/doctor/components/doctors-cases/doctors-cases.component';
 
 
+import {AuthGuardService as AuthGuard} from './core/guards/auth-guard.service';
+
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -33,7 +35,7 @@ const routes: Routes = [
       {path: 'appointments', component: PatientAppointmentsComponent},
       {path: 'bills', component: PatientBillsComponent},
       {path: 'medrecords', component: PatientMedRecordsComponent},
-    ]
+    ],canActivate: [AuthGuard]
   },
   {path: 'doctor/dashboard', component: DoctorDashboardComponent,
    children: [
@@ -41,7 +43,7 @@ const routes: Routes = [
       {path: 'patients', component: DoctorPatientsComponent},
       {path: 'appointments', component: DoctorsAppointmentsComponent},
       {path: 'records', component: DoctorsCasesComponent},
-    ]
+    ],canActivate: [AuthGuard]
   },
 ];
 
