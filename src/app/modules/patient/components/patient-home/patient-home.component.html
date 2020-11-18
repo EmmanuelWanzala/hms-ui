@@ -23,7 +23,7 @@
 				<div class="course-info">
 					
 					<h6>APPOINTMENTS</h6>
-					<h2>3</h2>
+					<h2 *ngIf="this._appService.patientAppointments">{{this._appService.patientAppointments.length}}</h2>
 			
 				</div>
 			</div>
