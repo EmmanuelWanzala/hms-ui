@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthServiceService} from "../../../../core/authentication/auth-service.service"
 
 @Component({
   selector: 'app-patient-navbar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _authService:AuthServiceService) { }
 
   ngOnInit(): void {
   }

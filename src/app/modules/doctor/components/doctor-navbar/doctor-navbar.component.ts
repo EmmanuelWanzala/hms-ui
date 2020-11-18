@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthServiceService} from "../../../../core/authentication/auth-service.service"
+
 
 @Component({
   selector: 'app-doctor-navbar',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _authService:AuthServiceService) { }
 
   ngOnInit(): void {
   }
