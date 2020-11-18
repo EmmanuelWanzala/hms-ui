@@ -4,11 +4,10 @@
 	    <div class="card-body">
 	        <form name="docloginForm" id="docloginForm" #docloginForm='ngForm' class="form-signin" style="padding:50px" method="POST">
 	            <h2 style="font-weight: 400;" class="text-center">Medman Doctor Sign in </h2>
-	          
-
-
-
-
+	            <div *ngFor="let error of _authService.loginErrors" class="alert alert-danger">
+		            <p>{{error.email}}</p>
+		            <p>{{error.detail}}</p>
+		        	</div>	
 	           	<div class="md-form form-group mt-4">
 						    <input type="email" class="form-control" #email='ngModel' ng-model="email" [(ngModel)]="loginuser.email" required id="email" name="email" >
 						    <label for="email">Email Address</label>

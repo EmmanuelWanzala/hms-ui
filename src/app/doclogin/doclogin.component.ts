@@ -8,7 +8,7 @@ import {AuthServiceService} from '../core/authentication/auth-service.service'
 export class DocloginComponent implements OnInit {
 
 	public loginuser:any
-	
+
   constructor(public _authService:AuthServiceService) { }
 
   ngOnInit(): void {
@@ -17,11 +17,12 @@ export class DocloginComponent implements OnInit {
   		email:'',
   		password:''
   	}
+  	this._authService.loginErrors=[]
   }
 
+
   docLogin=()=>{
-  	// this._authService.loginUser(this.loginuser)
-  	console.log(this.loginuser)
+  	this._authService.loginUser(this.loginuser)
   }
 
 }

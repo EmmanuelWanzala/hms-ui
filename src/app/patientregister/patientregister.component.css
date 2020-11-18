@@ -48,7 +48,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 h2{
   color: black;
   font-weight: 400;
-  font-size:  70px;
+  font-size:  300%;
   letter-spacing: -.02em;
   line-height: 20px;
   margin: 20px 10px 32px;
