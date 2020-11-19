@@ -1,44 +1,28 @@
 <div class="container">
 	<h5 class="col-md-9 mt-2 ml-0">Patients Appointments</h5>
 	<div class="row">
-	    <div  class="col-md-9 mt-2 ml-0 courses-container">
+	    <div *ngFor='let app of this._appService.patientAppointments' class="col-md-9 mt-2 ml-0 courses-container">
 
 			<div class="course">
 				<div class="course-preview">
 					<h6><i class="far fa-calendar-alt"></i> Date</h6>
-					<h2>Nov 24,2020</h2>
+					<h2>{{app.app_date | date:'MMM d, y h:mm a'}}</h2>
 					
 				</div>
 				<div class="course-info">
 					
-					<h4>Teeth Checkup</h4>
+					<h4>{{app.app_title}}</h4>
 
-					<h5>dr.Kamunya M.D</h5>
-					<h6>Tooth Cavity and sensitivity</h6>
-					<button  class="btn btn-success btn-sm waves-effect">Approved</button>
-					<button  class="btn btn-outline-danger btn-sm waves-effect">Delete</button>
+					<h5>dr.{{app.doctor.first_name}} {{app.doctor.last_name}}</h5>
+					<h6>{{app.app_details}}</h6>
+					<button *ngIf="app.app_status===0" class="btn btn-info btn-sm waves-effect">Pending</button>
+					<button *ngIf="app.app_status===1" class="btn btn-success btn-sm waves-effect">Approved</button>
+					<button *ngIf="app.app_status===2" class="btn btn-danger btn-sm waves-effect">Declined</button>
+					<button (click)="delAppointment(app.id)"  class="btn btn-outline-danger btn-sm waves-effect">Delete</button>
 				</div>
 			</div>
 		</div>
-		<div  class="col-md-9 mt-2 ml-0 courses-container">
-
-			<div class="course">
-				<div class="course-preview">
-					<h6><i class="far fa-calendar-alt"></i> Date</h6>
-					<h2>Nov 24,2020</h2>
-					
-				</div>
-				<div class="course-info">
-					
-					<h4>Teeth Checkup</h4>
-
-					<h5>dr.Kamunya M.D</h5>
-					<h6>Tooth Cavity and sensitivity</h6>
-					<button  class="btn btn-danger btn-sm waves-effect">Declined</button>
-					<button  class="btn btn-outline-danger btn-sm waves-effect">Delete</button>
-				</div>
-			</div>
-		</div>
+	
 	</div>
 </div>
 

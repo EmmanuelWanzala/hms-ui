@@ -52,6 +52,20 @@ export class AppointmentService {
   }
 
 
+  public deletePatientApp(id) {
+    this.http.delete(`${environment.api_url}/hms/api/appointment/${id}`, this.httpOptions).subscribe(
+      data => {
+      	alert('Appointment deleted')
+      	this.getPatientApps()
+      },
+      err => {
+    
+        console.log(err)
+          }
+    );
+  }
+
+
 
 
 }
