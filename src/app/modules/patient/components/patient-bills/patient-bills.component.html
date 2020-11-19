@@ -1,38 +1,24 @@
 <div class="container ">
 	<h5 class="col-md-9 mt-2">Patient's Bills</h5>
 	<div class="row justify-content-center">
-		<div class="mx-auto mb-4 col-md-6 col-lg-4 col-sm-12">
+		<div *ngFor='let bill of this._billService.patientBills,let i=index' class="mx-auto mb-4 col-md-6 col-lg-4 col-sm-12">
 			<div class="card mt-5 p-4 text-white">
-		        <p class="top mb-1">Teeth Checkup</p>
+		        <p class="top mb-1">{{bill.case.case_title}}</p>
 		        <div class="d-flex flex-row justify-content-between text-align-center xyz">
-		            <h6>Kshs. <span>3000</span></h6>
-		            <div class="discount"><span>BILL 001</span></div>
+		            <h6>Kshs. <span>{{bill.total_amount | number:'1.2-2'}}</span></h6>
+		            <div class="discount"><span>BILL {{pad(i+1)}}</span></div>
 		        </div>
 		        <div class="card-content mt-4">
-		            <p>Admission Fee - Kshs.0.00</p>
-		            <p>Doctor's Fee - Kshs.2000.00</p>
-		            <p>Service Fee - Kshs.500.00</p>
-		            <p>Medication Fee - Kshs.500.00</p>
+		            <p>Admission Fee - Kshs.{{bill.admission_fee | number:'1.2-2'}}</p>
+		            <p>Doctor's Fee - Kshs.{{bill.doc_fee | number:'1.2-2'}}</p>
+		            <p>Service Fee - Kshs.{{bill.service_fee | number:'1.2-2'}}</p>
+		            <p>Medication Fee - Kshs.{{bill.medication_fee | number:'1.2-2'}}</p>
 		        </div>
-		        <div class="mt-2"> <button class="btn btn-block btn-lg btn-primarry"><span>Make payment</span><i class="fas fa-arrow-right"></i></button> </div>
+		        <div *ngIf="!bill.is_paid" class="mt-2"> <button class="btn btn-block btn-lg btn-primarry"><span>Make payment</span><i class="fas fa-arrow-right"></i></button> </div>
+		        <div *ngIf="bill.is_paid" class="mt-2"> <button class="btn btn-block btn-lg btn-success"><span>PAID</span></button> </div>
     		</div>
 		</div>
-		<div class="mx-auto mb-4 col-md-6 col-lg-4 col-sm-12">
-			<div class="card mt-5 p-4 text-white">
-		        <p class="top mb-1">Teeth Checkup</p>
-		        <div class="d-flex flex-row justify-content-between text-align-center xyz">
-		            <h6>Kshs. <span>3000</span></h6>
-		            <div class="discount"><span>BILL 002</span></div>
-		        </div>
-		        <div class="card-content mt-4">
-		            <p>Admission Fee - Kshs.0.00</p>
-		            <p>Doctor's Fee - Kshs.2000.00</p>
-		            <p>Service Fee - Kshs.500.00</p>
-		            <p>Medication Fee - Kshs.500.00</p>
-		        </div>
-		        <div class="mt-2"> <button class="btn btn-block btn-lg btn-success"><span>PAID</span></button> </div>
-    		</div>
-		</div>
+	
 	</div>
   
 </div>
