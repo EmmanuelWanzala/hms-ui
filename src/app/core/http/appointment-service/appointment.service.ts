@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../../environments/environment'
+import { NotificationService } from '../../services/notification/notification.service';
+import { NotificationType } from '../../services/notification/notification-message';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class AppointmentService {
   errors:boolean=false
 
   public appErrors=[]
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private notificationService:NotificationService) {
    this.httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
@@ -42,12 +44,19 @@ export class AppointmentService {
   public createAppointment(appointment) {
     this.http.post(`${environment.api_url}/hms/api/appointment/create`, appointment, this.httpOptions).subscribe(
       data => {
-      	alert('Appointment Booked')
+         this.notificationService.sendMessage({
+            message: 'Appointment Booked',
+            type: NotificationType.success
+          });
       },
       err => {
     
         this.appErrors=[err.error]
-          }
+         this.notificationService.sendMessage({
+            message: 'Error creating appointment',
+            type: NotificationType.error
+          });
+        }
     );
   }
 
@@ -55,13 +64,20 @@ export class AppointmentService {
   public deletePatientApp(id) {
     this.http.delete(`${environment.api_url}/hms/api/appointment/${id}`, this.httpOptions).subscribe(
       data => {
-      	alert('Appointment deleted')
+      	  this.notificationService.sendMessage({
+            message: 'Appointment Deleted',
+            type: NotificationType.success
+          });
       	this.getPatientApps()
       },
       err => {
     
-        console.log(err)
-          }
+         this.notificationService.sendMessage({
+            message: 'Error deleting appointment',
+            type: NotificationType.error
+          });
+       }
+          
     );
   }
 
