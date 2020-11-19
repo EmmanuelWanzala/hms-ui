@@ -3,7 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment'
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
+import { NotificationService } from '../services/notification/notification.service';
+import { NotificationType } from '../services/notification/notification-message';
 
 const jwtHelper = new JwtHelperService();
 @Injectable({
@@ -37,7 +38,7 @@ export class AuthServiceService {
  
   
 
-  constructor(private http:HttpClient,private router:Router) {
+  constructor(private http:HttpClient,private router:Router,private notificationService:NotificationService) {
   	this.httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
@@ -70,7 +71,10 @@ export class AuthServiceService {
   public registerUser(user) {
     this.http.post(`${environment.api_url}/accounts/api/register`, JSON.stringify(user), this.httpOptions).subscribe(
       (data:any) => {
-      	alert(data.message)
+      	   this.notificationService.sendMessage({
+            message: data.message,
+            type: NotificationType.success
+          });
       	if (data.user.role===2) {
         	this.router.navigate(['/doctor/login'])
       	}else if(data.user.role===3){
@@ -81,6 +85,10 @@ export class AuthServiceService {
       err => {
 
         this.regErrors =[err.error]
+          this.notificationService.sendMessage({
+            message: 'Error registering',
+            type: NotificationType.error
+          });
           }
     );
   }
