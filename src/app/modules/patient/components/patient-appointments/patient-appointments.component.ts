@@ -14,4 +14,9 @@ export class PatientAppointmentsComponent implements OnInit {
   	this._appService.getPatientApps()
   }
 
+
+
+  delAppointment=(appid)=>{
+  	this._appService.deletePatientApp(appid)
+  }
 }
