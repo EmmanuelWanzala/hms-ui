@@ -141,24 +141,9 @@ export class AuthServiceService {
     this.user_id = null;
     this.refresh = null;
     
-
-
-    let user = JSON.parse(localStorage.getItem('auth_user'))
-
-
-
-    if(user.user.role===2){
-      localStorage.clear();
-      this.router.navigate(['/doctor/login'])
+    localStorage.clear();
+    this.router.navigate(['/'])
     }
-    else if(user.user.role===3){
-      localStorage.clear();
-      this.router.navigate(['/patient/login'])
-    }else{
-      localStorage.clear();
-      this.router.navigate(['/'])
-    }
-  }
   
  
  
