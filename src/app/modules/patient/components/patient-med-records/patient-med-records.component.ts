@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecordsService} from '../../../../core/http/records-service/records.service'
 
 @Component({
   selector: 'app-patient-med-records',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientMedRecordsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _recService:RecordsService) { }
 
   ngOnInit(): void {
+
+  	this._recService.getPatientRecords()
   }
 
 }

@@ -178,6 +178,9 @@ nav.navbar{
   .sidebar {
     top: 5rem;
   }
+  #sidebarMenu{
+  background-color: rgb(4, 146, 194,0.6);
+  }
   .navbar{
     margin-left: 0px; 
   }

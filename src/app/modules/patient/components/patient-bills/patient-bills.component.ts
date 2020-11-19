@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BillService} from '../../../../core/http/bill-service/bill.service'
+
 
 @Component({
   selector: 'app-patient-bills',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientBillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _billService:BillService) { }
 
   ngOnInit(): void {
+  	this._billService.getPatientBills()
   }
+   pad=(num)=> {
+   	let size=3
+    let s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+	}
 
 }
