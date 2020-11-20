@@ -13,6 +13,7 @@ export class AppointmentService {
 	// http options used for making API calls
   private httpOptions: any;
   patientAppointments:any
+  docAppointments:any
   errors:boolean=false
 
   public appErrors=[]
@@ -30,6 +31,23 @@ export class AppointmentService {
     this.http.get(`${environment.api_url}/hms/api/appointments/patient/${user.user.id}`, this.httpOptions).subscribe(
       data => {
         this.patientAppointments=data
+      },
+      err => {
+        console.log(err)
+        this.errors=true
+          }
+    );
+  }
+
+
+
+
+  public getDoctorApps() {
+    let user = JSON.parse(localStorage.getItem('auth_user'))
+
+    this.http.get(`${environment.api_url}/hms/api/appointments/doctor/${user.user.id}`, this.httpOptions).subscribe(
+      data => {
+        this.docAppointments=data
       },
       err => {
         console.log(err)

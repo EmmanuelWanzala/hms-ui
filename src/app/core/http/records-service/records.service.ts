@@ -11,6 +11,7 @@ export class RecordsService {
 	// http options used for making API calls
   private httpOptions: any;
   patientRecords:any
+  docRecords:any
   errors:boolean=false
   constructor(private http:HttpClient) {
    this.httpOptions = {
@@ -34,6 +35,22 @@ export class RecordsService {
     );
   }
 
+
+
+
+  public getDoctorRecords() {
+    let user = JSON.parse(localStorage.getItem('auth_user'))
+
+    this.http.get(`${environment.api_url}/hms/api/cases/doctor/${user.user.id}`, this.httpOptions).subscribe(
+      data => {
+        this.docRecords=data
+      },
+      err => {
+        console.log(err)
+        this.errors=true
+          }
+    );
+  }
 
 
 
