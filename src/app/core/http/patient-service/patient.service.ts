@@ -20,7 +20,6 @@ export class PatientService {
     this.http.get(`${environment.api_url}/accounts/api/patients`, this.httpOptions).subscribe(
       data => {
         this.allPatients=data
-        console.log(data)      
       },
       err => {
         console.log(err)

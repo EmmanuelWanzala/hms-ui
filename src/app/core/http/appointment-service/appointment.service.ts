@@ -48,7 +48,6 @@ export class AppointmentService {
     this.http.get(`${environment.api_url}/hms/api/appointments/doctor/${user.user.id}`, this.httpOptions).subscribe(
       data => {
         this.docAppointments=data
-        console.log(data)
       },
       err => {
         console.log(err)
