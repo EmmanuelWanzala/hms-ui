@@ -36,7 +36,7 @@
 				<div class="course-info">
 					
 					<h6>Patients</h6>
-					<h2>10</h2>
+					<h2 *ngIf="this._patService.allPatients">{{this._patService.allPatients.length}}</h2>
 			
 				</div>
 			</div>
