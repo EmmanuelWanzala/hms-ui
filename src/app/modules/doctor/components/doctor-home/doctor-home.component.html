@@ -4,7 +4,7 @@
 	  <div class="text-white d-flex align-items-center rgba-blue-strong py-5 px-4">
 	    <div>
 	      <p>Welcome
-	      	<span><p>dr. Kamunya M.D</p></span>
+	      	<span><p>dr. {{user.user.first_name}} {{user.user.last_name}}</p></span>
 	      </p>
 	      
 	      <hr>
@@ -21,7 +21,7 @@
 				<div class="course-info">
 					
 					<h6>APPOINTMENTS</h6>
-					<h2>3</h2>
+					<h2 *ngIf="this._appService.docAppointments">{{this._appService.docAppointments.length}}</h2>
 			
 				</div>
 			</div>
