@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {PatientService} from '../../../../core/http/patient-service/patient.service'
 @Component({
   selector: 'app-doctor-patients',
   templateUrl: './doctor-patients.component.html',
@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorPatientsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _patService:PatientService) { }
 
   ngOnInit(): void {
+  	this._patService.getAllPatients()
   }
 
 
-  data=['https://randomuser.me/api/portraits/men/83.jpg','https://randomuser.me/api/portraits/men/59.jpg','https://randomuser.me/api/portraits/men/80.jpg','https://randomuser.me/api/portraits/women/16.jpg','https://randomuser.me/api/portraits/women/89.jpg']
 
 }
