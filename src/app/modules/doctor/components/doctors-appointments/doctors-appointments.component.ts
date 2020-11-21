@@ -21,4 +21,10 @@ export class DoctorsAppointmentsComponent implements OnInit {
   	app.patient=app.patient.id
   	this._appService.approveApp(app)
   }
+  declineApp=(app)=>{
+  	app.app_status=2
+  	app.doctor=app.doctor.id
+  	app.patient=app.patient.id
+  	this._appService.declineApp(app)
+  }
 }

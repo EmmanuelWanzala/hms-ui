@@ -120,6 +120,27 @@ export class AppointmentService {
     );
   }
 
+
+  public declineApp(app) {
+    this.http.put(`${environment.api_url}/hms/api/appointment/${app.id}`,app, this.httpOptions).subscribe(
+      data => {
+          this.notificationService.sendMessage({
+            message: 'Appointment Rejected',
+            type: NotificationType.success
+          });
+        this.getDoctorApps()
+      },
+      err => {
+        console.log(err)
+         this.notificationService.sendMessage({
+            message: 'Rejection failed',
+            type: NotificationType.error
+          });
+       }
+          
+    );
+  }
+
 }
 
 
