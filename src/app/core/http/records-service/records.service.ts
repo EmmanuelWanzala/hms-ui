@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../../environments/environment'
-
+import { NotificationService } from '../../services/notification/notification.service';
+import { NotificationType } from '../../services/notification/notification-message';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +13,8 @@ export class RecordsService {
   private httpOptions: any;
   patientRecords:any
   docRecords:any
-  errors:boolean=false
-  constructor(private http:HttpClient) {
+  errors:any=[]
+  constructor(private http:HttpClient,private notificationService:NotificationService) {
    this.httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
@@ -49,6 +50,35 @@ export class RecordsService {
         console.log(err)
         this.errors=true
           }
+    );
+  }
+
+
+
+  public createRecord(newcase) {
+    this.http.post(`${environment.api_url}/hms/api/case/create`, newcase, this.httpOptions).subscribe(
+      data => {
+         this.notificationService.sendMessage({
+            message: 'Diagnosed Patient',
+            type: NotificationType.success
+          });
+          this.notificationService.sendMessage({
+            message: 'Patient Bill Generated',
+            type: NotificationType.success
+          });
+      },
+      err => {
+        console.log(err)
+        this.errors=[err.error]
+         this.notificationService.sendMessage({
+            message: 'Error creating case',
+            type: NotificationType.error
+          });
+         this.notificationService.sendMessage({
+            message: 'Error generating patient bill',
+            type: NotificationType.error
+          });
+        }
     );
   }
 
