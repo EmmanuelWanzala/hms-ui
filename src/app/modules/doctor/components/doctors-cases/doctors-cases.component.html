@@ -1,49 +1,19 @@
 <div class="container">
     <h5 class="text-center">Cases Attended</h5>
     <div class="row pt-3">
-        <div  class="mx-auto mb-4 col-md-8 col-lg-8 col-sm-8">
+        <div *ngFor="let record of this._recService.docRecords"  class="mx-auto mb-4 col-md-8 col-lg-8 col-sm-8">
             <div id="login-container">
               <div class="profile-img"></div>
-               <h3 class="text-center">Nov 24,2020</h3>
-                <h4>Teeth Checkup</h4>
+               <h3 class="text-center">{{record.case_date | date:'MMM d, y h:mm a'}}</h3>
+                <h4>{{record.case_title}}</h4>
                 <h6 class="pl-1">Patient</h6>
-                <p class="px-3 ">Emmanuel Wanzala</p>
+                <p class="px-3 ">{{record.patient.first_name}} {{record.patient.last_name}}</p>
                 <h6 class="pl-1">Diagnosis</h6>
-                <p class="px-3 ">Tooth Cavity and sensitivity</p>
+                <p class="px-3 ">{{record.diagnosis}}</p>
                 <h6 class="pl-1">Services</h6>
-                <p class="px-3 ">X-ray</p>
+                <p class="px-3 " *ngIf="record.service">{{record.service.service_name}}</p>
                 <h6 class="pl-1">Medication</h6>
-                <p class="px-3 ">Asprin</p>
-            </div>
-        </div>
-        <div  class="mx-auto  mb-4 col-md-8 col-lg-8 col-sm-8">
-            <div id="login-container">
-              <div class="profile-img"></div>
-               <h3 class="text-center">Nov 24,2020</h3>
-                <h4>Teeth Checkup</h4>
-                <h6 class="pl-1">Patient</h6>
-                <p class="px-3 ">Emmanuel Wanzala</p>
-                <h6 class="pl-1">Diagnosis</h6>
-                <p class="px-3 ">Tooth Cavity and sensitivity</p>
-                <h6 class="pl-1">Services</h6>
-                <p class="px-3 ">X-ray</p>
-                <h6 class="pl-1">Medication</h6>
-                <p class="px-3 ">Asprin</p>
-            </div>
-        </div>
-        <div  class="mx-auto mb-4 col-md-8 col-lg-8 col-sm-8">
-            <div id="login-container">
-              <div class="profile-img"></div>
-               <h3 class="text-center">Nov 24,2020</h3>
-                <h4>Teeth Checkup</h4>
-                <h6 class="pl-1">Patient</h6>
-                <p class="px-3 ">Emmanuel Wanzala</p>
-                <h6 class="pl-1">Diagnosis</h6>
-                <p class="px-3 ">Tooth Cavity and sensitivity</p>
-                <h6 class="pl-1">Services</h6>
-                <p class="px-3 ">X-ray</p>
-                <h6 class="pl-1">Medication</h6>
-                <p class="px-3 ">Asprin</p>
+                <p class="px-3 " *ngIf="record.medication">{{record.medication.med_name}}</p>
             </div>
         </div>
     </div>

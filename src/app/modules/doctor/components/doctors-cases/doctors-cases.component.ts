@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {RecordsService} from '../../../../core/http/records-service/records.service'
 @Component({
   selector: 'app-doctors-cases',
   templateUrl: './doctors-cases.component.html',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorsCasesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _recService:RecordsService) { }
 
   ngOnInit(): void {
+  	this._recService.getDoctorRecords()
   }
 
 }
