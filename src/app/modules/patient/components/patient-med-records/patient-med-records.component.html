@@ -11,9 +11,9 @@
 				<h6 class="pl-1">Diagnosis</h6>
 				<p class="px-3 ">{{record.diagnosis}}</p>
 				<h6 class="pl-1">Services</h6>
-				<p class="px-3 ">{{record.service}}</p>
+				<p class="px-3 " *ngIf="record.service">{{record.service.service_name}}</p>
 				<h6 class="pl-1">Medication</h6>
-				<p class="px-3 ">{{record.medication}}</p>
+				<p class="px-3 " *ngIf="record.medication">{{record.medication.med_name}}</p>
 			</div>
 		</div>
 	</div>
