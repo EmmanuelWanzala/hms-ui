@@ -44,9 +44,8 @@
 
 			        
 		      		<select [(ngModel)]="case.medication" #medication='ngModel' ng-model="medication" name="medication" id="medication" class="custom-select custom-select-sm">
-							  <option value="" default selected>No Medication</option>
-							  <option value="1">Asprin</option>
-							  <option value="2">Cough Syrup</option>
+							  <option value="" selected>No Medication</option>
+							  <option *ngFor="let med of _medService.allMeds,let i=index" value="{{med.id}}">{{med.med_name}}</option>
 							</select>
 		  		
 
