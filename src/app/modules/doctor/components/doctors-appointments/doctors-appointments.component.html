@@ -17,7 +17,7 @@
                     <h6>{{app.app_details}}</h6>
                     <button *ngIf="app.app_status===1" class="btn btn-success btn-sm waves-effect">APPROVED</button>
                     <button *ngIf="app.app_status===2" class="btn btn-danger btn-sm waves-effect">DECLINED</button>
-                    <button  *ngIf="app.app_status===0" class="btn btn-success btn-sm waves-effect">Approve</button>
+                    <button  *ngIf="app.app_status===0" (click)="approveApp(app)" class="btn btn-success btn-sm waves-effect">Approve</button>
                     <button  *ngIf="app.app_status===0" class="btn btn-outline-danger btn-sm waves-effect">Decline</button>
                 </div>
             </div>

@@ -100,7 +100,25 @@ export class AppointmentService {
   }
 
 
-
+  public approveApp(app) {
+    this.http.put(`${environment.api_url}/hms/api/appointment/${app.id}`,app, this.httpOptions).subscribe(
+      data => {
+          this.notificationService.sendMessage({
+            message: 'Appointment Approved',
+            type: NotificationType.success
+          });
+        this.getDoctorApps()
+      },
+      err => {
+        console.log(err)
+         this.notificationService.sendMessage({
+            message: 'Error approving appointment',
+            type: NotificationType.error
+          });
+       }
+          
+    );
+  }
 
 }
 

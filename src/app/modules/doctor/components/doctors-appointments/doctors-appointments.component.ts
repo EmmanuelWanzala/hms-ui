@@ -14,4 +14,11 @@ export class DoctorsAppointmentsComponent implements OnInit {
  	 this._appService.getDoctorApps()
   }
 
+
+  approveApp=(app)=>{
+  	app.app_status=1
+  	app.doctor=app.doctor.id
+  	app.patient=app.patient.id
+  	this._appService.approveApp(app)
+  }
 }
