@@ -63,7 +63,7 @@
 
 		      		<select #service='ngModel' ng-model="service" [(ngModel)]="case.service" name="service" id="service" class="custom-select custom-select-sm">
 							  <option value="" selected>No Service</option>
-							  <option value="1">X-ray</option>
+							  <option *ngFor="let service of _sevService.allServices,let i=index" value="{{service.id}}">{{service.service_name}}</option>
 							</select>
 		  	
 

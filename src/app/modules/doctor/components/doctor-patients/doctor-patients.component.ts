@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PatientService} from '../../../../core/http/patient-service/patient.service'
 import {MedicationService} from '../../../../core/http/medication-service/medication.service'
+import {ServicesService} from '../../../../core/http/services-service/services.service'
+
 @Component({
   selector: 'app-doctor-patients',
   templateUrl: './doctor-patients.component.html',
@@ -13,7 +15,7 @@ export class DoctorPatientsComponent implements OnInit {
 
 	public user:any
 
-  constructor(public _patService:PatientService,public _medService:MedicationService) { }
+  constructor(public _patService:PatientService,public _medService:MedicationService,public _sevService:ServicesService) { }
 
   ngOnInit(): void {
   	this.user=JSON.parse(localStorage.getItem('auth_user'))
@@ -29,6 +31,7 @@ export class DoctorPatientsComponent implements OnInit {
   	}
   	this._patService.getAllPatients()
   	this._medService.getAllMeds()
+  	this._sevService.getAllServices()
   }
 
 
