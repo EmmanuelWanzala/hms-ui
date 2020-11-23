@@ -5,14 +5,14 @@
       <div class="our-team">
       	<div *ngIf="profile.profile_pic" class="wrapper">
 		  <div class="file-upload">
-		    <input type="file" />
+		    <input type="file" name="profile" (change)="onChange($event)"/>
 		     <img *ngIf="profile.profile_pic" class="img-fluid" width="144px" height="144px" src="{{profile.profile_pic}}">
 		  </div>
 		</div>		
 
 		<div *ngIf="!profile.profile_pic" class="wrapper">
 		  <div class="file-upload">
-		    <input type="file" />
+		    <input type="file" name="profile" (change)="onChange($event)" />
 		     <img *ngIf="!profile.profile_pic" class="img-fluid" width="144px" height="144px" src="assets/icons/doc.png">
 		  </div>
 		</div>
