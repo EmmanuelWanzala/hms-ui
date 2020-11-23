@@ -36,6 +36,23 @@ export class DoctorService {
 
 
 
+  public editProfile(profile) {
+
+    this.http.put(`${environment.api_url}/accounts/api/doctor/${profile.user.id}`,profile, this.httpOptions).subscribe(
+      (data:any) => {
+        localStorage.setItem('auth_user',JSON.stringify(data))
+        console.log(data)     
+      },
+      err => {
+        console.log(err)
+     
+          }
+    );
+  }
+
+
+
+
 }
 
 

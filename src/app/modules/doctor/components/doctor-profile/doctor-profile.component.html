@@ -10,7 +10,7 @@
           <h3 class="name">{{my_profile.user.first_name}} {{my_profile.user.last_name}}</h3>
           <h4 class="title">DOCTOR</h4>
 
-          <button type="button" class="btn btn-rounded btn-primary mb-4"><i class="far fa-edit pr-2"></i>Edit Profile</button>
+          <a routerLink="/doctor/dashboard/profile/edit" href=""> <button type="button" class="btn btn-rounded btn-primary mb-4"><i class="far fa-edit pr-2"></i>Edit Profile</button></a>
         </div>
         <ul class="social">
           <li><i class="far fa-envelope-open" aria-hidden="true"></i><span class="p-4">{{my_profile.user.email}}</span> </li>

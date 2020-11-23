@@ -29,6 +29,7 @@ import { DoctorNavbarComponent } from './modules/doctor/components/doctor-navbar
 import { DoctorHomeComponent } from './modules/doctor/components/doctor-home/doctor-home.component';
 import { DoctorPatientsComponent } from './modules/doctor/components/doctor-patients/doctor-patients.component';
 import { DoctorProfileComponent } from './modules/doctor/components/doctor-profile/doctor-profile.component';
+import { DoctorEditProfileComponent } from './modules/doctor/components/doctor-edit-profile/doctor-edit-profile.component';
 
 
 
@@ -55,6 +56,7 @@ import { DoctorProfileComponent } from './modules/doctor/components/doctor-profi
     DoctorHomeComponent,
     DoctorPatientsComponent,
     DoctorProfileComponent,
+    DoctorEditProfileComponent,
 
   ],
   imports: [
