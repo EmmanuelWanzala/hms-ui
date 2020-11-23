@@ -4,7 +4,8 @@
 		<div *ngFor="let doc of this._docService.allDocs;" class="mx-auto mb-4 col-md-4 col-lg-3 col-sm-6">
 			<div class="card-container">
 				<span class="label">DOC</span>
-				<img class="round" src="assets/icons/doc.png"  width="144px" height="144px" alt="user" />
+				<img *ngIf="!doc.profile_pic" class="round" src="assets/icons/doc.png"  width="144px" height="144px" alt="user" />
+				<img *ngIf="doc.profile_pic" class="round" src="{{doc.profile_pic}}"  width="144px" height="144px" alt="user" />
 				<h3>dr.{{doc.user.first_name}} {{doc.user.last_name}}</h3>
 				<h6>{{doc.department}}</h6>
 				<button data-toggle="modal" (click)="setDocId(doc.user.id)" data-target="#appModalForm" class="primary ghost">
