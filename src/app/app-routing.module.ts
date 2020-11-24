@@ -17,7 +17,8 @@ import {DoctorHomeComponent } from './modules/doctor/components/doctor-home/doct
 import {DoctorPatientsComponent} from './modules/doctor/components/doctor-patients/doctor-patients.component';
 import {DoctorsAppointmentsComponent} from './modules/doctor/components/doctors-appointments/doctors-appointments.component';
 import {DoctorsCasesComponent} from './modules/doctor/components/doctors-cases/doctors-cases.component';
-
+import {DoctorProfileComponent} from './modules/doctor/components/doctor-profile/doctor-profile.component';
+import {DoctorEditProfileComponent} from './modules/doctor/components/doctor-edit-profile/doctor-edit-profile.component';
 
 import {AuthGuardService as AuthGuard} from './core/guards/auth-guard.service';
 
@@ -42,6 +43,8 @@ const routes: Routes = [
       {path: '', component: DoctorHomeComponent},
       {path: 'patients', component: DoctorPatientsComponent},
       {path: 'appointments', component: DoctorsAppointmentsComponent},
+      {path: 'profile', component: DoctorProfileComponent},
+      {path: 'profile/edit', component: DoctorEditProfileComponent},
       {path: 'records', component: DoctorsCasesComponent},
     ],canActivate: [AuthGuard]
   },

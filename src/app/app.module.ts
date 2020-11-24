@@ -6,7 +6,7 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,8 @@ import { PatientMedRecordsComponent } from './modules/patient/components/patient
 import { DoctorNavbarComponent } from './modules/doctor/components/doctor-navbar/doctor-navbar.component';
 import { DoctorHomeComponent } from './modules/doctor/components/doctor-home/doctor-home.component';
 import { DoctorPatientsComponent } from './modules/doctor/components/doctor-patients/doctor-patients.component';
+import { DoctorProfileComponent } from './modules/doctor/components/doctor-profile/doctor-profile.component';
+import { DoctorEditProfileComponent } from './modules/doctor/components/doctor-edit-profile/doctor-edit-profile.component';
 
 
 
@@ -53,6 +55,8 @@ import { DoctorPatientsComponent } from './modules/doctor/components/doctor-pati
     DoctorNavbarComponent,
     DoctorHomeComponent,
     DoctorPatientsComponent,
+    DoctorProfileComponent,
+    DoctorEditProfileComponent,
 
   ],
   imports: [
@@ -63,7 +67,8 @@ import { DoctorPatientsComponent } from './modules/doctor/components/doctor-pati
     NgProgressModule.forRoot(),
     NgProgressHttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
