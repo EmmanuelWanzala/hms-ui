@@ -1,3 +1,15 @@
+.patient-dashboard{
+	background-image: url(/assets/bgcontent.jpg);
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-size:cover;
+	min-height: 100vh;
+	font-family: 'Open Sans', sans-serif;
+	backdrop-filter: blur(3px);
+}
+.modal-backdrop {
+    position: relative;
+}
 .main{
   margin-left:14.5vw;
 }

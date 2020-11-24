@@ -1,21 +1,75 @@
 <div class="container">
-    <h5 class="text-center">Cases Attended</h5>
-    <div class="row pt-3">
-        <div *ngFor="let record of this._recService.docRecords"  class="mx-auto mb-4 col-md-8 col-lg-8 col-sm-8">
-            <div id="login-container">
-              <div class="profile-img"></div>
-               <h3 class="text-center">{{record.case_date | date:'MMM d, y h:mm a'}}</h3>
-                <h4>{{record.case_title}}</h4>
-                <h6 class="pl-1">Patient</h6>
-                <p class="px-3 ">{{record.patient.first_name}} {{record.patient.last_name}}</p>
-                <h6 class="pl-1">Diagnosis</h6>
-                <p class="px-3 ">{{record.diagnosis}}</p>
-                <h6 class="pl-1">Services</h6>
-                <p class="px-3 " *ngIf="record.service">{{record.service.service_name}}</p>
-                <h6 class="pl-1">Medication</h6>
-                <p class="px-3 " *ngIf="record.medication">{{record.medication.med_name}}</p>
+
+    <div class="row">
+
+        <div class="main-content-wrap"><header class="page-header"><h1 class="page-title">Cases Attended</h1></header>
+            <div class="page-content">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Patient Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Case</th>
+                                        <th scope="col">Diagnosis</th>
+                                        <th scope="col">Medication</th>
+                                        <th scope="col">Service</th>
+                                        <th scope="col">Admission Days</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let record of this._recService.docRecords">
+                                        <td>
+                                            <strong>{{record.patient.first_name}} {{record.patient.last_name}}</strong>  
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center nowrap text-primary">
+                                                <span class="far fa-envelope p-0 mr-2"></span> {{record.patient.email}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center nowrap text-primary">
+                                                <span class="fas fa-mobile-alt p-0 mr-2"></span>{{record.patient.mobile}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-nowrap">{{record.case_title}}</div>
+                                        </td>
+                                        <td>
+                                            <div class="align-items-center nowrap">
+                                                {{record.diagnosis}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p *ngIf="record.medication">{{record.medication.med_name}}</p>
+                                            <p *ngIf="!record.medication">None</p>
+                                        </td>
+                                        <td>
+                                            <p *ngIf="record.service">{{record.service.service_name}}</p>
+                                            <p *ngIf="!record.service">None</p>
+                                        </td>
+                                        <td>
+                                           {{record.admission_days}}
+                                        </td>
+                                         <td>
+                                            <div class="text-muted  text-nowrap">
+                                                {{record.case_date | date:'MMM d, y'}}
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+                 </div>
             </div>
         </div>
+
     </div>
 </div>
 

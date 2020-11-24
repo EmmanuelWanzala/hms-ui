@@ -37,7 +37,8 @@ body {
 #sidebarMenu{
   padding-top: 0 !important;
   box-shadow: none;
-  background-color: rgb(4, 146, 194,0.3);
+  background-color: rgb(4, 146, 194,0.7);
+  position: fixed;
 }
 
 .sidebar {
@@ -169,7 +170,7 @@ li  &.active a {
 }
 nav.navbar{
   /*background-color: black !important;*/
-  background: transparent;
+  background-color: rgb(4, 146, 194,0.7);
 
   height: 70px !important;
 
