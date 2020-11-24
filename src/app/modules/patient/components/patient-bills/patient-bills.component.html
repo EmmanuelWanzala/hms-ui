@@ -1,24 +1,79 @@
-<div class="container ">
-	<h5 class="col-md-9 mt-2">Patient's Bills</h5>
-	<div class="row justify-content-center">
-		<div *ngFor='let bill of this._billService.patientBills,let i=index' class="mx-auto mb-4 col-md-6 col-lg-4 col-sm-12">
-			<div class="card mt-5 p-4 text-white">
-		        <p class="top mb-1">{{bill.case.case_title}}</p>
-		        <div class="d-flex flex-row justify-content-between text-align-center xyz">
-		            <h6>Kshs. <span>{{bill.total_amount | number:'1.2-2'}}</span></h6>
-		            <div class="discount"><span>BILL {{pad(i+1)}}</span></div>
-		        </div>
-		        <div class="card-content mt-4">
-		            <p>Admission Fee - Kshs.{{bill.admission_fee | number:'1.2-2'}}</p>
-		            <p>Doctor's Fee - Kshs.{{bill.doc_fee | number:'1.2-2'}}</p>
-		            <p>Service Fee - Kshs.{{bill.service_fee | number:'1.2-2'}}</p>
-		            <p>Medication Fee - Kshs.{{bill.medication_fee | number:'1.2-2'}}</p>
-		        </div>
-		        <div *ngIf="!bill.is_paid" class="mt-2"> <button class="btn btn-block btn-lg btn-primarry"><span>Make payment</span><i class="fas fa-arrow-right"></i></button> </div>
-		        <div *ngIf="bill.is_paid" class="mt-2"> <button class="btn btn-block btn-lg btn-success"><span>PAID</span></button> </div>
-    		</div>
-		</div>
-	
-	</div>
-  
+<div class="container">
+
+    <div class="row">
+
+        <div class="main-content-wrap"><header class="page-header"><h1 class="page-title">Bills</h1></header>
+            <div class="page-content">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Bill No</th>
+                                        <th scope="col">Patient</th>
+                                        <th scope="col">Doctor</th>
+                                        <th scope="col">Case</th>
+                                        <th scope="col">Admission Fee</th>
+                                        <th scope="col">Service Fee</th>
+                                        <th scope="col">Medication Fee</th>
+                                        <th scope="col">Doctor Fee</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let bill of this._billService.patientBills,let i=index'>
+                                        <td>
+                                        	<div class="text-muted">
+                                                BILL {{pad(i+1)}}
+                                            </div>
+                                            
+                                        </td>
+                                        <td>
+	                                        <strong>{{bill.case.patient.first_name}} {{bill.case.patient.first_name}}</strong>
+                                        </td>
+                                        <td>
+                                            <strong>{{bill.case.doctor.first_name}} {{bill.case.doctor.first_name}}</strong>
+                                        </td>
+                                        <td>
+                                           {{bill.case.case_title}}
+                                        </td>
+                                        <td>
+                                           Kshs.{{bill.admission_fee | number:'1.2-2'}}
+                                        </td>
+                                        <td>
+                                            Kshs.{{bill.service_fee | number:'1.2-2'}}
+                                        </td>
+                                        <td>
+                                            Kshs.{{bill.medication_fee | number:'1.2-2'}}
+                                        </td>
+                                        <td>
+                                            Kshs.{{bill.doc_fee | number:'1.2-2'}}
+                                        </td>
+                                        <td>
+                                           Kshs.{{bill.total_amount | number:'1.2-2'}}
+                                        </td>
+                                         <td>
+                                            <div class="text-muted  text-nowrap">
+                                                {{bill.bill_date | date:'MMM d, y'}}
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+
+
+
+
+
