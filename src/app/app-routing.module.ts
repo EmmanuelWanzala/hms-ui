@@ -11,6 +11,8 @@ import {PatientDoctorsComponent} from './modules/patient/components/patient-doct
 import {PatientAppointmentsComponent} from './modules/patient/components/patient-appointments/patient-appointments.component';
 import {PatientBillsComponent} from './modules/patient/components/patient-bills/patient-bills.component';
 import {PatientMedRecordsComponent} from './modules/patient/components/patient-med-records/patient-med-records.component';
+import { PatientProfileComponent } from './modules/patient/components/patient-profile/patient-profile.component';
+import { PatientEditProfileComponent } from './modules/patient/components/patient-edit-profile/patient-edit-profile.component';
 
 import {DoctorDashboardComponent} from './modules/doctor/components/doctor-dashboard/doctor-dashboard.component'
 import {DoctorHomeComponent } from './modules/doctor/components/doctor-home/doctor-home.component';
@@ -35,6 +37,8 @@ const routes: Routes = [
       {path: 'doctors', component: PatientDoctorsComponent},
       {path: 'appointments', component: PatientAppointmentsComponent},
       {path: 'bills', component: PatientBillsComponent},
+      {path: 'profile', component:  PatientProfileComponent},
+      {path: 'profile/edit', component: PatientEditProfileComponent},
       {path: 'medrecords', component: PatientMedRecordsComponent},
     ],canActivate: [AuthGuard]
   },

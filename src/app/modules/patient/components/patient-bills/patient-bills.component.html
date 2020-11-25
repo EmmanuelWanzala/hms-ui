@@ -2,9 +2,8 @@
 
     <div class="row">
 
-        <div class="main-content-wrap"><header class="page-header"><h1 class="page-title">Bills</h1></header>
-            <div class="page-content">
-                <div class="card mb-0">
+        <header class="page-header text-center my-2"><h2 class="page-title">Bills</h2></header>
+                <div class="card mb-2">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -20,7 +19,7 @@
                                         <th scope="col">Doctor Fee</th>
                                         <th scope="col">Total</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Payment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,14 +60,19 @@
                                             </div>
                                            
                                         </td>
+                                        <td>
+                                            <span *ngIf="bill.is_paid" class="badge badge-info">PAID</span>
+                                             <a *ngIf="!bill.is_paid"  href="">
+                                                 <img src="assets/icons/mpesa.svg" 
+                                                 alt="avatar image" width="48px" height="40px" >
+                                              </a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                      </div>
                  </div>
-            </div>
-        </div>
 
     </div>
 </div>

@@ -83,6 +83,35 @@ export class RecordsService {
   }
 
 
+  public getCase(caseid) {
+    return this.http.get<any>(`${environment.api_url}/hms/api/case/${caseid}`,  this.httpOptions);
+  }
+
+
+
+  public editCase(editcase) {
+
+    this.http.put(`${environment.api_url}/hms/api/case/${editcase.id}`,editcase, this.httpOptions).subscribe(
+      (data:any) => {
+        this.getDoctorRecords()
+        this.notificationService.sendMessage({
+            message: 'Case updated',
+            type: NotificationType.success
+          });
+          return true     
+      },
+      err => {
+        console.log(err)
+        this.notificationService.sendMessage({
+            message: 'Error updating case',
+            type: NotificationType.error
+          });
+          return false 
+          }
+    );
+  }
+
+
 
 }
 
