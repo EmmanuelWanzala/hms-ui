@@ -19,6 +19,7 @@
                                         <th scope="col">Service</th>
                                         <th scope="col">Admission Days</th>
                                         <th scope="col">Date</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,6 +62,9 @@
                                             </div>
                                            
                                         </td>
+                                        <td class="d-flex  align-items-center nowrap">
+                                           <button (click)="getCase(record.id)" data-toggle="modal" data-target="#editCaseModalForm"  class="btn btn-success btn-sm rounded-pill"><span class="far fa-edit"></span></button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -70,6 +74,76 @@
             </div>
         </div>
 
+    </div>
+
+
+    <div class="modal fade" id="editCaseModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Edit Case</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form *ngIf="case" name="editCaseForm" (ngSubmit)='editCase();editCaseForm.reset()' id="editCaseForm" #editCaseForm='ngForm'>
+              <div class="modal-body mx-3">
+                    <div class="md-form mb-4">
+                      <i class="fas fa-heading prefix grey-text"></i>
+                      <input type="text" #case_title='ngModel' ng-model="case_title" [(ngModel)]="case.case_title" name="case_title" required  id="case-title" class="form-control validate">
+                        <div [hidden]="case_title.valid || case_title.pristine" class="alert alert-danger">
+                                <p>Case title is required</p>
+                                </div>
+                    </div>
+
+                    <div class="md-form mb-4">
+                      <i class="fas fa-info  prefix grey-text"></i>
+                      <textarea type="text" #diagnosis='ngModel' ng-model="diagnosis" [(ngModel)]="case.diagnosis" name="diagnosis" required id="diagnosis" rows="2" class="form-control md-textarea"></textarea>
+                        <div [hidden]="diagnosis.valid || diagnosis.pristine" class="alert alert-danger">
+                                <p>Diagnosis is required</p>
+                                </div>
+                    </div>
+
+                    
+                    <select [(ngModel)]="case.medication" #medication='ngModel' ng-model="medication" name="medication" id="medication" class="custom-select custom-select-sm">
+                              <option value="" selected>No Medication</option>
+                              <option *ngFor="let med of _medService.allMeds,let i=index" value="{{med.id}}">{{med.med_name}}</option>
+                            </select>
+                
+
+                    <div class="md-form mb-5">
+                      <i class="fas fa-capsules prefix grey-text"></i>
+                      <input [disabled]="!case.medication" value="0" type="number" #medication_quantity='ngModel' ng-model="medication_quantity" [(ngModel)]="case.medication_quantity" name="medication_quantity" min="1" id="medication_quantity" class="form-control validate">
+                        <div [hidden]="medication_quantity.valid || medication_quantity.pristine" class="alert alert-danger">
+                                <p>Medication Quantity invalid</p>
+                                </div>
+                    </div>
+
+
+                    
+
+                    <select #service='ngModel' ng-model="service" [(ngModel)]="case.service" name="service" id="service" class="custom-select custom-select-sm">
+                              <option value="" selected>No Service</option>
+                              <option *ngFor="let service of _sevService.allServices,let i=index" value="{{service.id}}">{{service.service_name}}</option>
+                            </select>
+            
+
+                    <div class="md-form mb-5">
+                      <i class="fas fa-bed prefix grey-text"></i>
+                      <input type="number"  #admission_days='ngModel' ng-model="admission_days" [(ngModel)]="case.admission_days"  id="admission_days" name="admission_days" required class="form-control validate">
+                         <div [hidden]="admission_days.valid || admission_days.pristine" class="alert alert-danger">
+                                <p>Admission days required</p>
+                                </div>
+                    </div>
+
+              </div>
+                 <div class="modal-footer d-flex justify-content-center">
+            <button [disabled]="!editCaseForm.valid" type="submit" class="btn btn-default">UPDATE</button>
+          </div>
+            </form>
+       
+        </div>
+      </div>
     </div>
 </div>
 

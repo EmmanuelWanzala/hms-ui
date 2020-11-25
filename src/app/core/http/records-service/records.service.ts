@@ -83,6 +83,11 @@ export class RecordsService {
   }
 
 
+  public getCase(caseid) {
+    return this.http.get<any>(`${environment.api_url}/hms/api/case/${caseid}`,  this.httpOptions);
+  }
+
+
 
 }
 
