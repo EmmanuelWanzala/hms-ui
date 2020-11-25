@@ -1,0 +1,67 @@
+<nav style="height: 35px; " class="navbar sticky-top navbar-light">
+<a class="navbar-brand text-white" href="">Medman </a>
+<ul class="navbar-nav ml-auto nav-flex-icons">
+    
+     <li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+         <img src="{{profile.profile_pic}}" 
+         alt="avatar image" width="28px" height="28px" class="rounded-circle z-depth-0">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right text-center dropdown-secondary"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" routerLink="/patient/dashboard/profile" routerLinkActive="active" href="">Profile</a>
+          <a class="dropdown-item" routerLink="/patient/dashboard/profile/edit" routerLinkActive="active" href="">Edit Profile</a>
+        </div>
+      </li> 
+      <li class="nav-item ">
+        <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+	  	<span class="navbar-toggler-icon"></span>
+	  	</button>
+      </li>
+	 
+</ul>      
+</nav>
+
+<nav id="sidebarMenu" class="col-md-3 d-md-block sidebar collapse">
+  <div class="sidebar-sticky mt-2 pt-1">
+    <ul class="nav flex-column text-center"> 
+    <li class="nav-item p-link">
+	  <a class="nav-link" routerLink="/patient/dashboard" routerLinkActive="active" href="">
+	     <img src="assets/icons/home.png" 
+         alt="avatar image" width="48px" height="48px" >
+	  </a>
+	</li>
+	<li class="nav-item p-link">
+	  <a class="nav-link" routerLink="/patient/dashboard/doctors" routerLinkActive="active"  href="">
+	    <img src="assets/icons/stethoscope.png" 
+         alt="avatar image" width="48px" height="48px" >
+	  </a>
+	</li>
+	<li class="nav-item p-link">
+	  <a class="nav-link" routerLink="/patient/dashboard/appointments" routerLinkActive="active"  href="">
+	     <img src="assets/icons/calendar1.png" 
+         alt="avatar image" width="48px" height="48px" >
+	  </a>
+	</li>
+	<li class="nav-item p-link">
+	  <a class="nav-link" routerLink="/patient/dashboard/bills" routerLinkActive="active" href="">
+	     <img src="assets/icons/invoice.png" 
+         alt="avatar image" width="48px" height="48px" >
+	  </a>
+	</li>
+	<li class="nav-item p-link">
+	  <a class="nav-link" routerLink="/patient/dashboard/medrecords" routerLinkActive="active" href="">
+	    <img src="assets/icons/record1.png" 
+         alt="avatar image" width="48px" height="48px" >
+	  </a>
+	</li>
+	<li class="nav-item p-link">
+	  <a (click)='this._authService.logOut();' class="nav-link" href="">
+	    <img src="assets/icons/logout.png" 
+         alt="avatar image" width="48px" height="48px" >
+	  </a>
+	</li>
+    </ul>
+  </div>
+</nav>

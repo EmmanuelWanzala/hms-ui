@@ -1,0 +1,65 @@
+<div class="container-fluid">
+
+	<div class="card card-image welcome-card">
+	  <div class="text-white d-flex align-items-center rgba-blue-strong py-5 px-4">
+	    <div>
+	      <p>Welcome
+	      	<span><p>dr. {{user.user.first_name}} {{user.user.last_name}}</p></span>
+	      </p>
+	      
+	      <hr>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="row px-4">
+		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
+		 	<div routerLink="/doctor/dashboard/appointments" class="course">
+				<div class="course-preview1">
+				
+				</div>
+				<div class="course-info">
+					
+					<h6>APPOINTMENTS</h6>
+					<h2 *ngIf="this._appService.docAppointments">{{this._appService.docAppointments.length}}</h2>
+			
+				</div>
+			</div>
+		</div>
+
+
+		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
+		 	<div routerLink="/doctor/dashboard/patients" class="course">
+				<div class="course-preview2">
+				
+				</div>
+				<div class="course-info">
+					
+					<h6>Patients</h6>
+					<h2 *ngIf="this._patService.allPatients">{{this._patService.allPatients.length}}</h2>
+			
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
+		 	<div routerLink="/doctor/dashboard/records" class="course">
+				<div class="course-preview3">
+				
+				</div>
+				<div class="course-info">
+					
+					<h6>Cases Attended</h6>
+					<h2 *ngIf="this._recService.docRecords">{{this._recService.docRecords.length}}</h2>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</div>

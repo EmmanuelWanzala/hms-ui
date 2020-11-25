@@ -1,0 +1,76 @@
+body {
+  font-family: tahoma;
+  height: 100vh;
+  background-image: url(https://picsum.photos/g/3000/2000);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.our-team {
+  padding: 30px 0 40px;
+  margin-bottom: 30px;
+  background-color: #f7f5ec;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+
+.our-team .file-upload img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .file-upload img {
+  box-shadow: 0 0 0 14px #f7f5ec;
+}
+
+.our-team .title {
+  display: block;
+  font-size: 15px;
+  color: #4e5052;
+  text-transform: capitalize;
+}
+
+
+.btn-rounded{
+  border-radius: 20px;
+}
+
+.wrapper {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+ .wrapper .file-upload {
+   height: 130px;
+   width: 130px;
+   border-radius: 100px;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 4px solid #fff;
+   overflow: hidden;
+   background-size: cover;
+   transition: all 1s;
+   color: #fff;
+   font-size: 100px;
+}
+ .wrapper .file-upload input[type='file'] {
+   height: 130px;
+   width: 130px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0;
+   cursor: pointer;
+}
+
+ 

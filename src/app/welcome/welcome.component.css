@@ -1,0 +1,43 @@
+.welcome{
+  height: 100vh;
+  position: relative;
+}
+
+.overl{
+  height: 100vh;
+  background-color: rgb(255, 255, 255,0.4);
+}
+#welcome-banner{
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height:50%;
+}
+.banner{
+  width: 90%;
+  margin: auto;
+  color:#000;
+}
+.banner .heading{
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 30px;
+  color: #fac564;
+}
+.banner .btn-primary {
+  background: #fac564;
+  color: #000;
+  font-weight: 600px;
+}
+.logo{
+	width:91px; 
+	heigh:91px;
+  border-radius: 50%;
+}
+
+span, h4{
+  font-family: 'Vollkorn SC', serif;
+}

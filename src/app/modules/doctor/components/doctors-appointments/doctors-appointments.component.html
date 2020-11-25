@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+
+        <header class="page-header text-center my-2"><h2 class="page-title">Appointments</h2></header>
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Patient Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Visit time</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Appointment</th>
+                                        <th scope="col">Details</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let app of _appService.docAppointments,let i=index">
+                                        <td>
+                                            <strong>{{app.patient.first_name}} {{app.patient.last_name}}</strong>  
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center nowrap text-primary">
+                                                <span class="icofont-ui-email p-0 mr-2"></span> {{app.patient.email}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-muted text-nowrap">{{app.app_date | date:'MMM d, y'}}</div>
+                                        </td>
+                                        <td>
+                                            <div class="text-muted text-nowrap">{{app.app_date | date:'h:mm a'}}</div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center nowrap text-primary">
+                                                <span class="icofont-ui-cell-phone p-0 mr-2"></span>{{app.patient.mobile}}
+                                            </div>
+                                        </td>
+                                        <td>{{app.app_title}}</td>
+                                        <td>{{app.app_details}}</td>
+                                        <td>
+                                           <span *ngIf="app.app_status===0" class="badge badge-info">Pending</span>
+                                           <span *ngIf="app.app_status===1" class="badge badge-success">Approved</span>
+                                           <span *ngIf="app.app_status===2" class="badge badge-danger">Declined</span>
+                                        </td>
+                                        <td class="d-flex  align-items-center nowrap">
+                                           <button *ngIf="app.app_status===0" (click)="approveApp(app)" class="btn btn-success btn-sm rounded-pill"><span class="btn-icon fas fa-check"></span></button>
+                                           <button *ngIf="app.app_status===0" (click)="declineApp(app)" class="btn btn-danger btn-sm rounded-pill"><span class="btn-icon fas fa-times"></span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+                 </div>
+
+    </div>
+</div>
+
