@@ -2,7 +2,7 @@
     background-color: rgba(4, 146, 194,0.6);
 }
 .welcome-card{
-	background-image: url('/assets/icons/clinic.jpg');
+	background-image: url('./assets/icons/clinic.jpg');
 	background-position: 50% 0%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -31,7 +31,7 @@
 }
 
 .course-preview1 {
-    background-image:url('/assets/icons/calendar1.png'); 
+    background-image:url('./assets/icons/calendar1.png'); 
     background-size: cover;
     color: #fff;
     padding: 30px;
@@ -39,7 +39,7 @@
     width:15vw;
 }
 .course-preview2 {
-    background-image:url('/assets/icons/invoice.png'); 
+    background-image:url('./assets/icons/invoice.png'); 
     background-size: cover;
     color: #fff;
     padding: 30px;
@@ -47,7 +47,7 @@
     width:15vw;
 }
 .course-preview3 {
-    background-image:url('/assets/icons/stethoscope.png'); 
+    background-image:url('./assets/icons/stethoscope.png'); 
     background-size: cover;
     color: #fff;
     padding: 30px;
@@ -55,7 +55,7 @@
     width:15vw;
 }
 .course-preview4 {
-    background-image:url('/assets/icons/record1.png'); 
+    background-image:url('./assets/icons/record1.png'); 
     background-size: cover;
     color: #fff;
     padding: 30px;

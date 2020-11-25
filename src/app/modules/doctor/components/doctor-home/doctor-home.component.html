@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-	<div style="background-image: url('/assets/icons/clinic.jpg')" class="card card-image welcome-card">
+	<div class="card card-image welcome-card">
 	  <div class="text-white d-flex align-items-center rgba-blue-strong py-5 px-4">
 	    <div>
 	      <p>Welcome
@@ -15,7 +15,7 @@
 	<div class="row px-4">
 		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
 		 	<div routerLink="/doctor/dashboard/appointments" class="course">
-				<div style="background-image:url('/assets/icons/calendar1.png');"   class="course-preview1">
+				<div class="course-preview1">
 				
 				</div>
 				<div class="course-info">
@@ -30,7 +30,7 @@
 
 		<div class="mx-auto mb-4 col-md-6 col-lg-6 col-sm-12">
 		 	<div routerLink="/doctor/dashboard/patients" class="course">
-				<div style="background-image: url('/assets/icons/patient.png');" class="course-preview2">
+				<div class="course-preview2">
 				
 				</div>
 				<div class="course-info">
@@ -49,7 +49,7 @@
 				<div class="course-preview3">
 				
 				</div>
-				<div style="background-image:url('/assets/icons/record1.png');"  class="course-info">
+				<div class="course-info">
 					
 					<h6>Cases Attended</h6>
 					<h2 *ngIf="this._recService.docRecords">{{this._recService.docRecords.length}}</h2>
