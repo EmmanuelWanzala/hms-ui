@@ -14,6 +14,8 @@ export class DoctorsCasesComponent implements OnInit {
 
   ngOnInit(): void {
   	this._recService.getDoctorRecords()
+  	this._medService.getAllMeds()
+  	this._sevService.getAllServices()
   }
 
 
@@ -32,6 +34,6 @@ export class DoctorsCasesComponent implements OnInit {
   }
 
   editCase(){
-  	console.log(this.case)
+  	this._recService.editCase(this.case)
   }
 }
