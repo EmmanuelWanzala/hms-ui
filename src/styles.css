@@ -4,9 +4,10 @@ body{
 	background-attachment:fixed;
 	background-repeat:no-repeat;
 	background-size:cover;
+	backdrop-filter: blur(3px);
 	min-height: 100vh;
 	font-family: 'Open Sans', sans-serif;
-	backdrop-filter: blur(3px);
+	height: 100%;
 }
 .modal-backdrop {
     position: relative;
