@@ -1,0 +1,87 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-10 mx-auto col-sm-10 col-md-10 col-lg-10">
+      <div class="our-team">
+      	<div *ngIf="profile.profile_pic" class="wrapper">
+		  <div class="file-upload">
+		    <input type="file" name="profile" (change)="onChange($event)"/>
+		     <img  class="img-fluid" width="144px" height="144px" src="{{profile.profile_pic}}">
+		  </div>
+		</div>	
+
+
+		  
+        <!-- Default form register -->
+		<form name="profileForm" (ngSubmit)='updateProfile()' id="profileForm" #profileForm='ngForm' class="border border-light p-5" action="#!">
+
+		    <div class="form-row mb-4">
+		        <div class="col">
+		            <label for="first_name">First Name</label>
+		            <input disabled="true" type="text" #first_name='ngModel' ng-model="first_name" [(ngModel)]="profile.user.first_name" required id="first_name" name="first_name" class="form-control" placeholder="First name">
+		            <div [hidden]="first_name.valid || first_name.pristine" class="alert alert-danger">
+		            <p>First Name is required</p>
+		        	</div>
+		        </div>
+		        <div class="col">
+		            <!-- Last name -->
+				    <label for="last_name">Last Name</label>
+		            <input disabled="true" type="text" class="form-control" #last_name='ngModel' ng-model="last_name" [(ngModel)]="profile.user.last_name" required id="last_name" name="last_name">
+				    <div [hidden]="last_name.valid || last_name.pristine" class="alert alert-danger">
+			            <p>Last Name is required</p>
+			        </div>
+		        </div>
+		    </div>
+
+		    <!-- E-mail -->
+		    <label for="email">Email Address</label>
+		    <input disabled="true" type="email" class="form-control mb-4" #email='ngModel' ng-model="email" [(ngModel)]="profile.user.email" required id="email" name="email" >
+		    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+	            <p>Invalid Email Address</p>
+	        </div>
+	       <!--  <div *ngFor="let error of _authService.editProfileErrors" class="alert alert-danger">
+	            <p>{{error.email}}</p>
+	        </div>	 -->
+
+
+		    <label for="address">Address</label>
+		    <input disabled="true" type="text" class="form-control mb-4" #address='ngModel' ng-model="address" [(ngModel)]="profile.user.address" required id="address" name="address" >
+		    <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+	            <p>Address is required</p>
+	        </div>
+
+
+			<label for="mobile">Mobile</label>
+	        <input disabled="true" type="number" #mobile='ngModel' ng-model="mobile" [(ngModel)]="profile.user.mobile" required id="mobile" min="10" name="mobile" class="form-control mb-4">
+			<div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+		    <p>Mobile number is required</p>
+		    </div>
+		    <label for="last_name">Blood Group</label>
+		    <input type="text" [(ngModel)]="profile.blood_group" #blood_group='ngModel' ng-model="blood_group" name="blood_group" id="blood_group" disabled="true" class="form-control mb-4">
+    		<select [(ngModel)]="profile.blood_group" #blood_group='ngModel' ng-model="blood_group" name="blood_group" id="blood_group" class="custom-select custom-select-sm">
+				  <option *ngFor="let bgrp of blood_groups,let i=index" value="{{bgrp}}">{{bgrp}}</option>
+			</select>
+	 
+
+
+			<label for="dob">Birthday</label>
+
+
+	          <input type="datetime-local" #dob='ngModel' ng-model="dob" [(ngModel)]="profile.dob"  required id="dob" name="dob" class="form-control validate">
+			  <div [hidden]="dob.valid || dob.pristine" class="alert alert-danger">
+		            <p>Birthday required</p>
+		      </div>
+			    	
+		   
+
+
+		    <!-- Sign up button -->
+		    <button class="btn btn-info my-4 btn-block" type="submit">Update Profile</button>
+
+
+
+		</form>
+	  </div>
+    </div> 
+  </div>
+</div>
